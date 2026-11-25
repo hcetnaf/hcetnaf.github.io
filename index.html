@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The academic homepage of Finn Yang.">
+  <meta name="theme-color" content="#f6f8f7">
+  <title>Finn Yang | Academic Homepage</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --background: #f6f8f7;
+      --ink: #172622;
+      --muted: #455951;
+      --accent: #145844;
+      --line: #d3dfd8;
+      --display: Georgia, 'Times New Roman', serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--background); font: 1rem/1.65 system-ui, sans-serif; }
+    a { color: var(--accent); text-underline-offset: .24em; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .skip { position: absolute; top: .5rem; left: .5rem; padding: .5rem; background: white; transform: translateY(-150%); }
+    .skip:focus { transform: none; }
+    .wrap { width: min(100% - 3rem, 68rem); margin: 0 auto; }
+    header { border-bottom: 1px solid var(--line); background: #fff; }
+    .masthead, nav ul { display: flex; align-items: center; flex-wrap: wrap; }
+    .masthead { min-height: 4.5rem; gap: .5rem 2rem; justify-content: space-between; }
+    .brand { color: var(--ink); font: 700 1.35rem var(--display); text-decoration: none; }
+    nav ul { gap: .35rem 1.35rem; margin: 0; padding: 0; list-style: none; }
+    nav a { color: var(--muted); font-size: .925rem; text-decoration: none; }
+    nav a:hover { color: var(--accent); text-decoration: underline; }
+    .layout { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: clamp(2rem, 7vw, 6rem); padding: clamp(2.5rem, 7vw, 5.5rem) 0 4rem; }
+    .profile { align-self: start; border-top: 3px solid var(--accent); padding: 1.5rem; background: #e8f0eb; }
+    .monogram { display: grid; place-items: center; aspect-ratio: 1; width: 4.75rem; color: white; background: var(--accent); font: 1.7rem var(--display); border-radius: .4rem; }
+    .name { margin: 1rem 0 .2rem; font: 700 1.6rem var(--display); }
+    .profile p:not(.name) { margin: 0 0 .8rem; }
+    h1, h2 { margin: 0 0 .7rem; font-family: var(--display); line-height: 1.12; }
+    h1 { font-size: clamp(2.65rem, 6vw, 4.1rem); }
+    h2 { font-size: clamp(1.55rem, 3.5vw, 2rem); }
+    .intro { font-size: 1.125rem; }
+    .intro p { max-width: 38rem; }
+    p { margin: 0; }
+    .muted { color: var(--muted); }
+    main section { padding: 1.6rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 1rem; }
+    main section:first-child { padding-top: 0; }
+    .areas { display: flex; flex-wrap: wrap; gap: .55rem; margin: 0; padding: 0; list-style: none; }
+    .areas li { padding: .3rem .75rem; border: 1px solid var(--line); border-radius: 2rem; color: var(--accent); background: white; font-size: .9rem; }
+    footer { border-top: 1px solid var(--line); color: var(--muted); }
+    footer .wrap { padding: 1.35rem 0; }
+    @media (max-width: 48rem) {
+      .layout { grid-template-columns: 12rem minmax(0, 1fr); gap: 2rem; }
+      .masthead { padding: 1rem 0; }
+    }
+    @media (max-width: 36rem) {
+      .wrap { width: calc(100% - 2rem); }
+      .layout { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; padding-top: 1.5rem; }
+      .profile { padding: 1rem 1.25rem; }
+      nav ul { gap: .35rem .95rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header>
+    <div class="masthead wrap">
+      <a class="brand" href="#about">Finn Yang</a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#teaching">Teaching</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="layout wrap">
+    <aside class="profile" aria-label="Profile">
+      <div class="monogram" aria-hidden="true">FY</div>
+      <p class="name">Finn Yang</p>
+      <p class="muted">Academic Homepage</p>
+      <a href="https://github.com/hcetnaf">GitHub profile</a>
+    </aside>
+    <main id="content" tabindex="-1">
+      <section class="intro" id="about">
+        <h1>About me</h1>
+        <p>I'm Finn Yang. My interests include geophysics, scientific computing, and the Internet of Things.</p>
+      </section>
+      <section id="research">
+        <h2>Research</h2>
+        <ul class="areas">
+          <li>Geophysics</li>
+          <li>Scientific computing</li>
+          <li>Internet of Things</li>
+        </ul>
+      </section>
+      <section id="publications">
+        <h2>Publications</h2>
+        <p class="muted">A publication list will be added here.</p>
+      </section>
+      <section id="projects">
+        <h2>Projects</h2>
+        <p class="muted">Project summaries and links will be added here.</p>
+      </section>
+      <section id="teaching">
+        <h2>Teaching</h2>
+        <p class="muted">Course information will be added here.</p>
+      </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Find me on <a href="https://github.com/hcetnaf">GitHub</a>.</p>
+      </section>
+    </main>
+  </div>
+  <footer><div class="wrap">Finn Yang</div></footer>
+</body>
+</html>
