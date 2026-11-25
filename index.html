@@ -29,8 +29,6 @@
       --glass: rgb(251 253 255 / 82%);
       --glass-stroke: rgb(255 255 255 / 94%);
       --glow-2: #edf1ff;
-      --portrait-dark: #153766;
-      --portrait-light: #4276cb;
       --shadow: 0 20px 65px -40px rgb(38 64 125 / 38%);
       --nav-shadow: 0 13px 40px -23px rgb(28 51 107 / 48%);
       --radius: 1.65rem;
@@ -115,17 +113,6 @@
       font-weight: 690;
       text-decoration: none;
     }
-    .brand-mark {
-      display: grid;
-      place-items: center;
-      flex: 0 0 2rem;
-      height: 2rem;
-      border-radius: .68rem;
-      background: linear-gradient(145deg, #356fc8, #1a3870);
-      color: #fff;
-      font-size: .67rem;
-      letter-spacing: -.02em;
-    }
     .nav {
       display: flex;
       position: relative;
@@ -194,10 +181,6 @@
       background: linear-gradient(90deg, currentColor 50%, transparent 50%);
     }
     .hero {
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
-      gap: clamp(.9rem, 2.5vw, 1.65rem);
-      align-items: center;
       margin-top: clamp(.8rem, 2vw, 1.4rem);
       padding: clamp(.95rem, 2.2vw, 1.45rem);
       border: 1px solid var(--subtle);
@@ -243,54 +226,9 @@
       transition: transform 180ms cubic-bezier(.2,.75,.25,1), box-shadow 180ms ease;
     }
     .button.primary { background: var(--accent-solid); color: var(--on-accent); border-color: transparent; }
-    .portrait {
-      width: 6.4rem;
-      aspect-ratio: 4 / 5;
-      margin: 0;
-      border: 1px solid var(--subtle);
-      border-radius: .72rem;
-      overflow: hidden;
-    }
-    .portrait img, .initials {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 50% 30%;
-    }
-    .initials {
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      position: relative;
-      isolation: isolate;
-      color: #f4f8ff;
-      background:
-        radial-gradient(ellipse at 78% 7%, #6e9be2 0%, transparent 56%),
-        linear-gradient(145deg, var(--portrait-light), var(--portrait-dark) 85%);
-    }
-    .initials::before, .initials::after {
-      content: "";
-      z-index: -1;
-      position: absolute;
-      width: 92%;
-      aspect-ratio: 1;
-      border-radius: 38%;
-      border: 1px solid rgb(231 242 255 / 36%);
-      transform: rotate(28deg);
-      inset: auto auto -42% -30%;
-    }
-    .initials::after { transform: rotate(48deg); inset: -36% -37% auto auto; }
-    .initials span {
-      max-width: 100%;
-      font-size: 1.55rem;
-      font-weight: 590;
-      line-height: 1;
-      letter-spacing: -.05em;
-    }
     .sections {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: minmax(0, 1fr);
       gap: .95rem;
       margin-top: .95rem;
     }
@@ -301,7 +239,6 @@
       background: var(--panel);
       box-shadow: var(--shadow);
     }
-    .panel.wide { grid-column: 1 / -1; }
     section { scroll-margin-top: 6.2rem; }
     h2 {
       margin: 0 0 .55rem;
@@ -313,17 +250,27 @@
     p { margin: 0; }
     .intro p + p, .panel p + p { margin-top: .6rem; }
     .empty { color: var(--quiet); }
-    .topics { display: flex; flex-wrap: wrap; gap: .5rem; margin: .9rem 0 0; padding: 0; list-style: none; }
-    .topics li {
-      padding: .27rem .73rem;
-      border-radius: .68rem;
-      background: var(--nav-tint);
-      color: var(--ink);
-      font-size: .875rem;
-      font-weight: 550;
+    .entries { margin: 0; padding: 0; list-style: none; }
+    .entry {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: .75rem 1.25rem;
+      padding: .65rem 0;
     }
-    .entries { margin: .25rem 0 0; padding-left: 1.2rem; }
-    .entries li + li { margin-top: .4rem; }
+    .entry + .entry { border-top: 1px solid var(--subtle); }
+    .entry:last-child { padding-bottom: 0; }
+    .entry-text { min-width: 0; white-space: pre-line; }
+    .entry-thumbnail {
+      flex: 0 0 auto;
+      width: clamp(4.5rem, 18vw, 7.5rem);
+      aspect-ratio: 3 / 2;
+      height: auto;
+      object-fit: contain;
+      border: 1px solid var(--subtle);
+      border-radius: .56rem;
+      background: var(--bg);
+    }
     .footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; padding: 1.45rem .2rem 1.75rem; color: var(--quiet); font-size: .875rem; }
     .footer a { font-weight: 620; }
     @media (hover: hover) {
@@ -351,10 +298,10 @@
       .wrap { width: calc(100% - 1.35rem); }
       .dock { top: .35rem; margin-top: .42rem; }
       .nav a { padding-inline: .59rem; }
-      .hero { align-items: start; gap: .72rem; padding: .85rem; }
-      .portrait { width: clamp(3.6rem, 15vw, 4.6rem); }
+      .hero { padding: .85rem; }
       .button { min-height: 2.75rem; padding-inline: .5rem; }
-      .sections { grid-template-columns: minmax(0, 1fr); gap: .65rem; }
+      .sections { gap: .65rem; }
+      .entry { gap: .7rem; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
@@ -370,13 +317,12 @@
 <body>
   <a class="skip" href="#content">Skip to content</a>
   <header class="wrap dock">
-    <a class="brand" href="#about"><span class="brand-mark" aria-hidden="true">FY</span><span>Fan Yang</span></a>
-    <nav aria-label="Main navigation"><ul class="nav" id="section-links"><li><a href="#about" aria-current="location">About</a></li><li><a href="#research">Research</a></li><li><a href="#publications">Publications</a></li><li><a href="#projects">Projects</a></li><li><a href="#teaching">Teaching</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+    <a class="brand" href="#about">Resume</a>
+    <nav aria-label="Main navigation"><ul class="nav" id="section-links"><li><a href="#about" aria-current="location">About</a></li><li><a href="#publications">Publications</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li></ul></nav>
     <button class="theme" type="button" id="theme" hidden><span class="theme-icon" aria-hidden="true"></span><span id="theme-label">Appearance</span></button>
   </header>
   <main class="wrap" id="content" tabindex="-1">
     <section class="hero" id="about" aria-labelledby="name">
-      <figure class="portrait"><img src="portrait.png" alt="Portrait of Fan Yang" decoding="async"></figure>
       <div class="hero-content">
         <h1 id="name">Fan Yang</h1>
         <p class="affiliation">Harbin University of Science and Technology</p>
@@ -384,7 +330,7 @@
         <div class="actions"><a class="button primary" href="https://scholar.google.com.sg/citations?user=Z6davR4AAAAJ&amp;hl=en">Google Scholar</a><a class="button" href="https://github.com/hcetnaf">GitHub</a></div>
       </div>
     </section>
-    <div class="sections"><section class="panel wide" id="research"><h2>Research</h2><ul class="topics"><li>Geophysics</li><li>Quantum measurement</li><li>Weak-signal processing</li></ul></section><section class="panel" id="publications"><h2>Publications</h2><ul class="entries"><li>test</li></ul></section><section class="panel" id="projects"><h2>Projects</h2><ul class="entries"><li>test</li></ul></section><section class="panel" id="teaching"><h2>Teaching</h2><ul class="entries"><li>test</li></ul></section><section class="panel" id="contact"><h2>Contact</h2><p>test</p></section></div>
+    <div class="sections"><section class="panel" id="publications"><h2>Publications</h2><ul class="entries"><li class="entry"><span class="entry-text">test</span></li></ul></section><section class="panel" id="projects"><h2>Projects</h2><ul class="entries"><li class="entry"><span class="entry-text">test</span></li></ul></section><section class="panel" id="contact"><h2>Contact</h2><p>test</p></section></div>
   </main>
   <footer class="wrap footer"><span>Fan Yang</span><a href="#about">Back to top</a></footer>
   <script>
